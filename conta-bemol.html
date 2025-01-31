@@ -1,0 +1,660 @@
+<!doctypehtml>
+    <html lang=pt-br>
+    <meta charset=UTF-8>
+    <meta content="IE=edge" http-equiv=X-UA-Compatible>
+    <meta content="width=device-width,initial-scale=1" name=viewport>
+    <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css rel=stylesheet crossorigin=anonymous integrity=sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD>
+    <link href=/arquivos/bemol-lpstyle-mar2023-v2.css rel=stylesheet>
+    <link href=/arquivos/lp-conta-style-v2.css rel=stylesheet>
+    <link href=/arquivos/slick-theme-v2.css rel=stylesheet>
+    <link href=https://unpkg.com/swiper/swiper-bundle.min.css rel=stylesheet>
+    <style>
+        #content,
+        #content-wrapper,
+        #content-wrapper>article,
+        #middle,
+        #middle footer,
+        #middle header {
+            overflow: unset !important
+        }
+
+        body.bemol-farma #content {
+            margin-top: -30px
+        }
+
+        .bot-popup {
+            display: none !important
+        }
+
+        main.conteudoespecial-Bemol .container-popup-hidden h2,
+        main.conteudoespecial-Bemol .container-popup-hidden p {
+            color: #fff
+        }
+
+        main.conteudoespecial-Bemol .container-popup-hidden h2 {
+            font-size: 35px
+        }
+
+        main.conteudoespecial-Bemol .container-popup-hidden {
+            width: 800px;
+            margin: auto;
+            background: #003fba;
+            border-radius: 10px;
+            color: #fff;
+            position: fixed;
+            right: -100%;
+            top: 0;
+            transform: translate(0, 0);
+            transition: ease-out;
+            transition: 1s;
+            z-index: 9999;
+            height: 100vh;
+            width: max-content;
+            padding-right: 200px;
+            box-shadow: -3px 3px 8px 2px #2531786b
+        }
+
+        .container-pontuacao p {
+            line-height: 1.3em
+        }
+
+        main.conteudoespecial-Bemol .container-popup-ativo {
+            position: fixed;
+            right: -500px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: right 1s ease-in
+        }
+
+        .button-pop-up {
+            cursor: pointer
+        }
+
+        button:hover {
+            text-decoration: auto !important;
+            color: auto !important;
+            background-color: auto !important;
+            border-bottom-color: auto !important
+        }
+
+        main.conteudoespecial-Bemol .bonus-diario-acumulam p {
+            margin: auto
+        }
+
+        .grid-pontuacao-extra div:nth-child(1) p:nth-child(2),
+        .grid-pontuacao-extra div:nth-child(1) p:nth-child(3) {
+            padding-top: 30px
+        }
+
+        main.conteudoespecial-Bemol .section-bonus-diario {
+            background: #fff;
+            background: linear-gradient(180deg, #fff 55%, #003fba 55%)
+        }
+
+        main.conteudoespecial-Bemol .section-emprestimo .bg-clock {
+            background: url(/arquivos/lp-conta-bemol-bg-fundo-emprestimo-pessoal-2.png) no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: 80%
+        }
+
+        main.conteudoespecial-Bemol img.container-400.bg-clock {
+            margin-bottom: -12px
+        }
+
+        main.conteudoespecial-Bemol .section-emprestimo.bg-circle {
+            background-image: url(/arquivos/lp-conta-bemol-bg-circulo-azul-gradient.png);
+            background-position-x: calc(50% + 300px);
+            background-repeat: no-repeat;
+            background-size: contain
+        }
+
+        @media (max-width:769px) {
+            main.conteudoespecial-Bemol img.container-400.bg-clock {
+                margin-bottom: -10px
+            }
+
+            main.conteudoespecial-Bemol #recarga img.container-400 {
+                margin-top: 50px
+            }
+
+            main.conteudoespecial-Bemol .section-emprestimo.bg-circle {
+                background-image: url(/arquivos/lp-conta-bemol-bg-circulo-azul-gradient.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center 400px
+            }
+        }
+
+        main.conteudoespecial-Bemol section#recarga ul {
+            color: #003fba;
+            font-size: 15px;
+            margin-bottom: 20px;
+            padding-inline-start: 0;
+            list-style-type: none
+        }
+
+        main.conteudoespecial-Bemol section#recarga ul li {
+            display: inline-flex;
+            gap: 5px;
+            padding-bottom: 10px
+        }
+
+        main.conteudoespecial-Bemol section#recarga ul li:nth-child(1):before {
+            content: "";
+            display: inline-block;
+            background: url(/arquivos/lp-conta-bemol-icon-operadoras.png) no-repeat center center;
+            background-size: contain;
+            margin-right: 5px;
+            height: 20px;
+            width: 20px
+        }
+
+        main.conteudoespecial-Bemol section#recarga ul li:nth-child(2):before {
+            content: "";
+            display: inline-block;
+            background: url(/arquivos/lp-conta-bemol-icon-agilidade.png) no-repeat center center;
+            background-size: contain;
+            margin-right: 5px;
+            height: 20px;
+            width: 20px
+        }
+
+        main.conteudoespecial-Bemol section#recarga ul li:nth-child(3):before {
+            content: "";
+            display: inline-block;
+            background: url(/arquivos/lp-conta-bemol-icon-qualquer-momento.png) no-repeat center center;
+            background-size: contain;
+            margin-right: 5px;
+            height: 20px;
+            width: 20px
+        }
+
+        main.conteudoespecial-Bemol section#emprestimos {
+            background-color: #ffbd00;
+            margin-bottom: 40px
+        }
+
+        @media (max-width:769px) {
+            .button-pop-up {
+                display: none !important
+            }
+        }
+
+        @media (max-width:769px) {
+            main.conteudoespecial-Bemol .menu-superior img {
+                height: 25px
+            }
+
+            main.conteudoespecial-Bemol .menu-superior button {
+                padding: 10px 12px
+            }
+
+            main.conteudoespecial-Bemol .menu-superior {
+                flex-wrap: nowrap
+            }
+
+            main.conteudoespecial-Bemol .bonus-diario.slider {
+                width: 95%
+            }
+
+            main.conteudoespecial-Bemol .section-bonus-diario .grid-2 {
+                display: block
+            }
+
+            main.conteudoespecial-Bemol .grid-beneficios {
+                box-shadow: 1px 1px 7px 3px #f0f0f0
+            }
+
+            main.conteudoespecial-Bemol .grid-pontuacao-extra p {
+                font-size: 14px !important
+            }
+
+            main.conteudoespecial-Bemol .contato-email {
+                background-size: 25px
+            }
+
+            main.conteudoespecial-Bemol .contato-phone {
+                background-size: 18px
+            }
+        }
+    </style>
+    <style>
+        .bonus-diario {
+            position: relative
+        }
+
+        .bonus-diario-slide {
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 0 #0f0f0f4d;
+            background-color: #fff;
+            padding: 15px
+        }
+
+        .partner-slide {
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 0 #f0f0f0;
+            background-color: #fff;
+            padding: 20px 0
+        }
+
+        .bonus-diario-item-img {
+            height: 42px;
+            width: auto !important
+        }
+
+        .bonus-diario-item-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 5px
+        }
+
+        .bonus-diario-item-text {
+            margin: 0;
+            text-align: center;
+            font-size: 13px;
+            color: #003fba
+        }
+
+        .bonus-diario-button-next::after,
+        .bonus-diario-button-prev::after {
+            display: none
+        }
+
+        .bonus-diario-button-next,
+        .bonus-diario-button-prev {
+            width: 30px;
+            height: 30px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transform: translateY(-50%);
+            position: absolute;
+            margin-top: 0
+        }
+
+        .partner-button-next,
+        .partner-button-prev {
+            color: #0d49bd
+        }
+
+        .swiper-container,
+        .swiper-container-2 {
+            padding: 8px
+        }
+
+        @media (max-width:769px) {
+
+            .bonus-diario-button-next,
+            .bonus-diario-button-prev {
+                display: none
+            }
+        }
+
+        .partner-item-image {
+            height: auto !important;
+            width: 60% !important
+        }
+
+        .bonus-diario-button-next {
+            right: -35px
+        }
+
+        .bonus-diario-button-prev {
+            left: -35px
+        }
+
+        .swiper-container,
+        .swiper-container-2 {
+            overflow: hidden
+        }
+
+        .bonus-diario-slide {
+            opacity: 0
+        }
+
+        .bonus-diario-slide.swiper-slide-active {
+            opacity: 1;
+            transition: opacity .5s
+        }
+
+        main.conteudoespecial-Bemol .bg-azul {
+            background: #003fba;
+            background: linear-gradient(white 20%, #003fba 20%, #003fba 95%, #fff 90%);
+            color: #fff
+        }
+    </style>
+    <main>
+        <section class=wrapper id=middle>
+            <div id=content>
+                <div id=content-wrapper>
+                    <main class=conteudoespecial-Bemol>
+                        <div class="espacamento-int bg-sombra container-popup-hidden d-view">
+                            <div class=container-800>
+                                <article class=container-400>
+                                    <h2>Hora de criar sua Conta Bemol</h2>
+                                    <p>Aponte a câmera do Celular para o QR Code e faça o download na loja de aplicativos do seu celular.
+                                </article>
+                                <figure class=container-400><img src=/arquivos/lp-contabemol-qrcode.png alt="Aponte sua câmera para a tela e scaneie o QR Code para ir diretamente para o aplicativo da Conta ou realizar o download"></figure>
+                            </div>
+                            <div class="container-400 grid-2">
+                                <figure><img src=/arquivos/lp-contabemol-app-store.png alt="Baixe na AppStore"></figure>
+                                <figure><img src=/arquivos/lp-contabemol-google-play.png alt="Baixe no Google Play"></figure>
+                            </div>
+                        </div>
+                        <section class=menu-fixo>
+                            <div class="container-1000 menu-superior">
+                                <h1><img src=/arquivos/lp-conta-bemol-marca-conta-bemol.png alt="Conta Bemol"></h1><a href=#a-conta>
+                                    <p class=d-view>A conta</p>
+                                </a><a href=#ponto-de-bonus>
+                                    <p class=d-view>Ponto de Bônus</p>
+                                </a><a href=#emprestimos>
+                                    <p class=d-view>Empréstimos</p>
+                                </a><a href=#contato>
+                                    <p class=d-view>Contato</p>
+                                </a><button class=button-pop-up>Criar Conta</button><a href=https://bit.ly/3IHupgC><button class=m-view>Criar Conta</button></a><a href=/ target=_parent><img src=/arquivos/marca-bemol.svg alt="Logo Bemol"></a>
+                            </div>
+                        </section>
+                        <section class="bg-gradient-azul section-vantagens">
+                            <div class=bg-icon-conta>
+                                <div class="container-1000 grid-2">
+                                    <article class="conteudo-centralizado container-600 espacamento-int">
+                                        <h2 class=titulo-destaque>Vantagens todos os dias na sua conta digital de confiança</h2><button class="button-pop-up button-amarelo">Quero a Conta Bemol</button><a href=https://bit.ly/3IHupgC target=_blank><button class="m-view button-amarelo">Quero a Conta Bemol</button></a>
+                                    </article><img src=/arquivos/lp-conta-bemol-persona-topo-3.png alt="" class=espacamento-int>
+                                </div>
+                            </div>
+                        </section>
+                        <section class=section-beneficios id=a-conta>
+                            <article class="espacamento-sup container-500">
+                                <h2 class=texto-centralizado>A Conta Bemol tem benefícios exclusivos para clientes Bemol</h2>
+                            </article>
+                            <div class="texto-centralizado grid-3-2 grid-beneficios">
+                                <div><img src=/arquivos/lp-conta-bemol-icon-estrela-de-bonus.png alt="">
+                                    <p>Pontos de bônus todos os dias
+                                </div>
+                                <div><img src=/arquivos/lp-conta-bemol-icon-parcela.png alt="">
+                                    <p>Quite parcelas Bemol e todas as suas contas
+                                </div>
+                                <div><img src=/arquivos/lp-conta-bemol-icon-emprestimos.png alt="">
+                                    <p>Empréstimos Bemol direto do aplicativo
+                                </div>
+                                <div><img src=/arquivos/lp-conta-bemol-icon-lojas.png alt="">
+                                    <p>Depósito e Saque em Loja além do expediente bancário
+                                </div>
+                                <div><img src=/arquivos/lp-conta-bemol-icon-atendimento.png alt="">
+                                    <p>Atendimento online e nas Lojas
+                                </div>
+                                <div><img src=/arquivos/lp-conta-bemol-icon-crediario-parceiro.png alt="">
+                                    <p>Crediário Parceiro
+                                </div>
+                            </div>
+                        </section>
+                        <section class=section-bonus-diario id=ponto-de-bonus>
+                            <div class="container-1000 espacamento-sup grid-2">
+                                <article class="container-400 conteudo-centralizado">
+                                    <h2>Seu saldo em conta vale pontos de bônus todos os dias</h2>
+                                    <p>A cada <b>1.500 pontos</b> de bônus acumulados, já é possível <b>economizar</b> em suas compras nas Lojas Bemol, Bemol Farma e Mercado Bemol.
+                                    <section class=bonus-diario>
+                                        <div class=swiper-container>
+                                            <div class=swiper-wrapper>
+                                                <div class="swiper-slide bonus-diario-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-icon-bonus-1.png class=bonus-diario-item-img>
+                                                        <p class=bonus-diario-item-text>Além de <b>R$ 20</b> no seu saldo, a<b>cada +R$ 40 adicionado</b>, você ganha<b>mais 1 ponto por dia</b>
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide bonus-diario-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-icon-bonus-1.png class=bonus-diario-item-img>
+                                                        <p class=bonus-diario-item-text>Com apenas <b>R$ 20</b>, comece a acumular <b>1 ponto</b> por dia a cada 24h.
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide bonus-diario-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-icon-bonus-2.png class=bonus-diario-item-img>
+                                                        <p class=bonus-diario-item-text><b>Saldo: R$ 60</b><br>(R$ 20 + R$ 40 = <b>2 pontos</b> a cada 24h)
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-slide bonus-diario-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-icon-bonus-3.png class=bonus-diario-item-img>
+                                                        <p class=bonus-diario-item-text><b>Saldo: R$ 100</b><br>(R$ 20 + R$ 40 + R$ 40 = <b>3 pontos</b> a cada 24h)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bonus-diario-button-next swiper-button-next"><svg data-testid=geist-icon height=16 stroke-linejoin=round style=color:currentcolor viewBox="0 0 16 16" width=16>
+                                                    <path clip-rule=evenodd d="M5.50001 1.93933L6.03034 2.46966L10.8536 7.29288C11.2441 7.68341 11.2441 8.31657 10.8536 8.7071L6.03034 13.5303L5.50001 14.0607L4.43935 13L4.96968 12.4697L9.43935 7.99999L4.96968 3.53032L4.43935 2.99999L5.50001 1.93933Z" fill=currentColor fill-rule=evenodd></path>
+                                                </svg></div>
+                                            <div class="bonus-diario-button-prev swiper-button-prev"><svg data-testid=geist-icon height=16 stroke-linejoin=round style=color:currentcolor viewBox="0 0 16 16" width=16>
+                                                    <path clip-rule=evenodd d="M10.5 14.0607L9.96966 13.5303L5.14644 8.7071C4.75592 8.31658 4.75592 7.68341 5.14644 7.29289L9.96966 2.46966L10.5 1.93933L11.5607 2.99999L11.0303 3.53032L6.56065 7.99999L11.0303 12.4697L11.5607 13L10.5 14.0607Z" fill=currentColor fill-rule=evenodd></path>
+                                                </svg></div>
+                                        </div>
+                                    </section>
+                                </article><img src=/arquivos/lp-conta-bemol-persona-bonus.png alt="" class=container-400>
+                            </div>
+                            <article class="espacamento-int container-600 texto-centralizado">
+                                <p class=texto-branco>Mantenha <b>R$ 20 no seu saldo</b> e ganhe <b>1 ponto por dia!</b> Quer ganhar mais? Acima de R$ 20 no seu saldo, a cada <b>R$ 40 adicionado</b>, você ganha mais um ponto por dia. Quanto maior o seu saldo, <b>mais pontos por dia!</b>
+                            </article>
+                        </section>
+                        <section class=section-pontuacao-extra>
+                            <article class="espacamento-sup container-600">
+                                <h2 class=texto-centralizado>Ganhe ainda mais com pontuação extra!</h2>
+                            </article>
+                            <div class=espacamento-int>
+                                <div class=bg-amarelo>
+                                    <div class="container-1000 bg-pontos-extras">
+                                        <div class="container-500 grid-3-m grid-pontuacao-extra">
+                                            <div class=container-pontuacao>
+                                                <p><b>500</b>pontos
+                                                <p><b>500</b>pontos
+                                                <p><b>30</b>pontos
+                                            </div><img src=/arquivos/lp-conta-bemol-icon-pontos-de-bonus-barra.png alt="">
+                                            <div>
+                                                <p><b>Ao criar sua conta e finalizar o cadastro</b>
+                                                <p><b>No primeiro depósito de, pelo menos, R$ 20</b>
+                                                <p><b>A cada parcela Bemol quitada</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><button class="button-pop-up button-amarelo">Pontos extras agora!</button><a href=https://bit.ly/3IHupgC class=m-view><button class=button-amarelo>Pontos extras agora!</button></a>
+                        </section>
+                        <section class=section-atendimento-online>
+                            <div class="container-1000 espacamento-sup grid-2">
+                                <article class="container-400 conteudo-centralizado">
+                                    <h2>Saque e depósito nas Loja Bemol e Bemol Farma em horários flexíveis</h2>
+                                    <p>Para mais comodidade e agilidade na sua rotina, temos saque e depósito disponível além do expediente bancário em todas as Lojas Bemol e Bemol Farma.</p><a href=/nossas-lojas target=_parent class=link-amarelo>Conheça nossas lojas</a>
+                                </article><img src=/arquivos/lp-conta-bemol-persona-atendimento.png alt="" class=container-400>
+                            </div>
+                        </section>
+                        <section class=section-pagamentos>
+                            <div class=bg-azul>
+                                <div class="container-1000 espacamento-sup grid-2-invertido"><img src=/arquivos/lp-conta-bemol-smartphone-pagamentos.png alt="" class=container-400>
+                                    <article class="container-400 conteudo-centralizado">
+                                        <h2>Pague a Bemol e qualquer outra conta em um só lugar!</h2>
+                                        <p>A cada parcela Bemol paga com o seu saldo, você ganha 30 pontos de bônus e tem o limite do crediário liberado em poucos minutos. As funcionalidades pagamento de boleto e Pix também estão disponíveis para facilitar a sua rotina.</p><a class="button-pop-up link-amarelo">Quite suas parcelas agora</a><a href=https://bit.ly/3IHupgC class=link-amarelo><span class=m-view>Quite suas parcelas agora</span></a>
+                                    </article>
+                                </div>
+                            </div>
+                        </section>
+                        <section class=section-crediario-parceiro>
+                            <div class="container-1000 espacamento-sup grid-2-invertido"><img src=/arquivos/lp-conta-bemol-persona-crediario-parceiro.png alt="" class=container-400>
+                                <article class="container-400 conteudo-centralizado">
+                                    <h2>Venda mais ou compre com limite extra no Crediário Parceiro</h2>
+                                    <div>
+                                        <p>É empreendedor? Seja um Parceiro Bemol e alavanque suas vendas com as melhores vantagens! Sem maquininha, taxas baixas e direto na Conta Bemol.
+                                        <p>Cliente, compre com confiança e parcele em até 18x nos Parceiros Bemol pelo aplicativo. São dezenas de estabelecimentos e empreendedores cadastrados!.
+                                    </div><button class="button-azul button-pop-up">Acesse a Conta Bemol</button><a href=https://bit.ly/3IHupgC><button class="button-azul m-view">Acesse a Conta Bemol</button></a>
+                                </article>
+                            </div>
+                        </section>
+                        <section class=section-cartao>
+                            <div class="container-1000 espacamento-sup grid-2">
+                                <article class="container-400 conteudo-centralizado">
+                                    <h2>Do físico ao virtual com seu cartão Conta Bemol</h2>
+                                    <div>
+                                        <p>Use seu cartão de débito por aproximação em qualquer estabelecimento.
+                                        <p>Facilite suas <b>compras online</b> com o<b> cartão virtual pré-pago</b>.
+                                        <p>Tenha 1 saque gratuito por mês em qualquer caixa 24h.
+                                    </div><button class="button-azul button-pop-up">Solicitar cartão Conta Bemol</button><a href=https://bit.ly/3IHupgC><button class="button-azul m-view">Solicitar cartão Conta Bemol</button></a>
+                                </article><img src=/arquivos/lp-conta-bemol-smartphone-cartao-digital.png alt="" class=container-400>
+                            </div>
+                        </section>
+                        <section class=section-emprestimo id=emprestimos>
+                            <div class="container-1000 espacamento-sup grid-2-invertido"><img src=/arquivos/lp-conta-bemol-persona-emprestimo-pessoal-2.png alt="" class="container-400 bg-clock">
+                                <article class="container-400 conteudo-centralizado">
+                                    <h2>Empréstimo de confiança na palma da sua mão!</h2>
+                                    <p>Já é possível fazer <b>Empréstimos Bemol</b> direto do aplicativo com valores até R$ 25.000.<br>Veja como é fácil contratar e receber seu dinheiro <b>no mesmo dia</b>.</p><button class="button-azul button-pop-up">Baixe e simule</button><a href=https://bit.ly/3IHupgC><button class="button-azul m-view">Baixe e simule</button></a>
+                                </article>
+                            </div>
+                        </section>
+                        <section class="section-emprestimo bg-circle" id=recarga>
+                            <div class="container-1000 espacamento-sup grid-2">
+                                <article class="container-400 conteudo-centralizado">
+                                    <h2>Recarga de celular na Conta Bemol</h2>
+                                    <p>Ficar sem <b>crédito</b> para acessar aplicativos ou fazer ligações?<br>Nunca mais.
+                                    <ul>
+                                        <li>As<b>principais</b>operadoras do Brasil
+                                        <li>Mais<b>agilidade</b>na sua rotina
+                                        <li>Disponível a<b>qualquer momento</b>
+                                    </ul><button class="button-azul button-pop-up">Recarregue agora</button><a href=https://bit.ly/3IHupgC><button class="button-azul m-view">Recarregue agora</button></a>
+                                </article><img src=/arquivos/lp-conta-bemol-recarga-de-celular.png alt="" class=container-400>
+                            </div>
+                        </section>
+                        <!-- 
+                        <section class="espacamento-sup section-mais-bonus texto-centralizado">
+                            <div class="container-1000 espacamento-sup bg-mais-bonus"><img src=/arquivos/lp-conta-bemol-marca-mais-bonus.png alt="" class=marca-mais-bonus>
+                                <article class="espacamento-int container-500">
+                                    <h2>Compras do dia a dia e gastos inesperados podem virar descontos nas Lojas Bemol</h2>
+                                    <p>Use seu cartão de débito Conta Bemol em <b>estabelecimentos parceiros</b> e <b>ganhe pontos de bônus</b> para usar em compras nas Lojas, Farmas e Mercado Bemol.
+                                    <p class=texto-conversao-bonus>R$ 1,00 = 1 Ponto de Bônus
+                                    <p><b>Conheça nossos parceiros:</b>
+                                    <section class=bonus-diario>
+                                        <div class=swiper-container-2>
+                                            <div class=swiper-wrapper>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-innovatech.jpg class=partner-item-image></div>
+                                                </div>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-japura-oticas-oftalnorte.jpg class=partner-item-image></div>
+                                                </div>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-japura-cheirin-bao.jpg class=partner-item-image></div>
+                                                </div>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-mc-donalds.jpg class=partner-item-image></div>
+                                                </div>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-muy-gringo.jpg class=partner-item-image></div>
+                                                </div>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-japura-pneus.jpg class=partner-item-image></div>
+                                                </div>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-tambaqui-de-banda.jpg class=partner-item-image></div>
+                                                </div>
+                                                <div class="swiper-slide partner-slide">
+                                                    <div class=bonus-diario-item-wrapper><img src=/arquivos/lp-conta-bemol-marca-italux.jpg class=partner-item-image></div>
+                                                </div>
+                                            </div>
+                                            <div class="bonus-diario-button-next swiper-button-next partner-button-next"><svg data-testid=geist-icon height=16 stroke-linejoin=round style=color:currentcolor viewBox="0 0 16 16" width=16>
+                                                    <path clip-rule=evenodd d="M5.50001 1.93933L6.03034 2.46966L10.8536 7.29288C11.2441 7.68341 11.2441 8.31657 10.8536 8.7071L6.03034 13.5303L5.50001 14.0607L4.43935 13L4.96968 12.4697L9.43935 7.99999L4.96968 3.53032L4.43935 2.99999L5.50001 1.93933Z" fill=currentColor fill-rule=evenodd></path>
+                                                </svg></div>
+                                            <div class="bonus-diario-button-prev swiper-button-prev partner-button-prev"><svg data-testid=geist-icon height=16 stroke-linejoin=round style=color:currentcolor viewBox="0 0 16 16" width=16>
+                                                    <path clip-rule=evenodd d="M10.5 14.0607L9.96966 13.5303L5.14644 8.7071C4.75592 8.31658 4.75592 7.68341 5.14644 7.29289L9.96966 2.46966L10.5 1.93933L11.5607 2.99999L11.0303 3.53032L6.56065 7.99999L11.0303 12.4697L11.5607 13L10.5 14.0607Z" fill=currentColor fill-rule=evenodd></path>
+                                                </svg></div>
+                                        </div>
+                                    </section>
+                                </article>
+                                <p>Para mais informações:<a href=https://www.bemol.com.br/mais-bonus target=_parent>bemol.com.br/mais-bonus</a>
+                            </div>
+                        </section> -->
+                        <section class=section-btn-faq>
+                            <div class="container-1000 espacamento-sup grid-2">
+                                <article class="container-400 conteudo-centralizado">
+                                    <h2>Descubra como é fácil simplificar sua vida financeira.</h2>
+                                </article>
+                                <div class="container-400 conteudo-centralizado"><button class="button-azul button-pop-up">Abra sua Conta Bemol</button><a href=https://bit.ly/3IHupgC><button class="button-azul m-view">Abra sua Conta Bemol</button></a><a href=/faq-contabemol target=_parent><button class=button-borda-amarela>Perguntas frequentes</button></a></div>
+                            </div>
+                        </section>
+                        <section class="espacamento-sup section-footer" id=contato>
+                            <div class=bg-azul-footer>
+                                <article class="espacamento-int container-800">
+                                    <h2>Qualquer dúvida, consulte nossos<br><b>canais de atendimento</b></h2><a href=mailto:fala@contabemol.com.br>
+                                        <p class="texto-destaque contato-email">fala@contabemol.com.br</p>
+                                    </a>
+                                    <p class="texto-destaque contato-phone">0800 726 8300
+                                    <p class=contato-horarios>Horário de atendimento<br>Segunda-feira a Sábado através do 0800-726-8300.<br>Domingos e Feriados através do <a href=mailto:fala@contabemol.com.br>fala@contabemol</a>.
+                                </article>
+                                <div class="container-800 container-footer-social grid-2">
+                                    <div class="container-400 grid-social"><a href=https://www.instagram.com/contabemol/ target=_blank><img src=/arquivos/lp-conta-bemol-icon-instagram.png alt=""></a><a href=https://www.facebook.com/contabemol target=_blank><img src=/arquivos/lp-conta-bemol-icon-facebook.png alt=""></a><a href=https://www.youtube.com/contabemol target=_blank><img src=/arquivos/lp-conta-bemol-icon-youtube.png alt=""></a><a href=https://br.linkedin.com/company/contabemol target=_blank><img src=/arquivos/lp-conta-bemol-icon-linkedin.png alt=""></a>
+                                        <p>@contabemol
+                                    </div>
+                                    <div class="container-400 espacamento-int grid-2-m marcas"><img src=/arquivos/lp-conta-bemol-marca-conta-bemol-negativa.png alt=""> <img src=/arquivos/lp-conta-bemol-marca-bemol.png alt=""></div>
+                                </div>
+                            </div>
+                        </section>
+                        <p class="container-1000 espacamento-int" style=margin-top:0!important>Declaramos que a Conta Bemol é uma parceria entre a Bemol Serviços Financeiros e a Instituição de Pagamento Dock Soluções em Meios de Pagamento S.A.
+                    </main>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src=https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js></script>
+    <script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js crossorigin=anonymous integrity=sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN></script>
+    <script src=https://unpkg.com/swiper/swiper-bundle.min.js></script>
+    <script>
+        $(document).ready(function() {
+            $(".button-pop-up").click(function() {
+                $(".container-popup-hidden").toggleClass("container-popup-ativo"), $(window.parent.document).scrollTop() < 200 ? $(".container-popup-ativo").css("padding-top", "20px") : 6200 < $(window.parent.document).scrollTop() ? $(".container-popup-ativo").css("padding-top", "6200px") : $(".container-popup-ativo").css("padding-top", $(window.parent.document).scrollTop() - 100 + "px")
+            }), $("body").on("click", function(o) {
+                $(o.target).is(".button-pop-up") || $(".container-popup-hidden").removeClass("container-popup-ativo")
+            })
+        })
+    </script>
+    <script>
+        $(window.parent.document).on('scroll', function() {
+            var scrollHeight = $(this).scrollTop();
+            if (scrollHeight < 200) {
+                $('.container-popup-ativo').css('padding-top', `20px`);
+                return;
+            }
+            if (scrollHeight > 6200) {
+                $('.container-popup-ativo').css('padding-top', `6200px`);
+                return;
+            }
+            $('.container-popup-ativo').css('padding-top', `${scrollHeight - 100}px`)
+        })
+    </script>
+    <script>
+        $(window).trigger("scroll").scroll(function() {
+            var e = $(this);
+            $("body"), e.scrollTop(), $("header#header .main-bar").height("134px"), $("#header .main-bar").removeClass("flutuante"), $(".produto-flutuante").removeClass("hide")
+        })
+    </script>
+    <script>
+        var swiper = new Swiper(".swiper-container", {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: !0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: !0
+                }
+            }),
+            swiper2 = new Swiper(".swiper-container-2", {
+                slidesPerView: 3,
+                spaceBetween: 10,
+                loop: !0,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: !0
+                }
+            })
+    </script>
